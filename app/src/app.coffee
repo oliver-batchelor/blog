@@ -2,11 +2,11 @@
 
 
 ## Declare app level module which depends on filters, and services
-angular.module('blog', []).
+angular.module('App', ['Blog', 'Editor']).
 
 config ['$routeProvider',(routeProvider) ->
-  routeProvider.when '/home',  {template: 'partials/home.html', controller: HomeController}
-  routeProvider.when '/about', {template: 'partials/about.html'}
+  routeProvider.when '/about', {templateUrl: 'partials/about.html'}
+  routeProvider.when '/:page',  {templateUrl: 'partials/page.html'}
   routeProvider.otherwise {redirectTo: '/home'}
 ]
 

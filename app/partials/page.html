@@ -1,0 +1,50 @@
+<div class="article">
+
+
+  <div  ng-repeat="(id, article) in articles">
+
+
+    <div ng-show="isEditing(id)">
+
+
+      <h1 class="editing" bind-html ng-model="article.title" contenteditable="true"> </h1>
+
+      <div  class="edit-frame">
+
+        <div class="edit-tools">
+
+          <div class="center">
+            <button><i class="icon-edit"></i> Edit </button>
+          </div>
+        </div>
+
+
+        <div active="articleActive" selection="articleSelection" class="editing content" bind-html ng-model="article.content" contenteditable="true"></div>
+
+      </div>
+
+    </div>
+
+
+    <div ng-hide="isEditing(id)">
+
+      <div class="right-tool" ng-click="startEdit(id)"><i class="icon-edit"></i></div>
+
+      <h1 ng-bind-html-unsafe="article.title"></h1>
+          <div class="content" ng-bind-html-unsafe="article.content"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  </div>
+
+    {{article.content}}
+
+
+  </div>
+
+</div>
